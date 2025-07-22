@@ -1,6 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
-import time
+import requests
 
 # --- App Configuration ---
 st.set_page_config(
@@ -10,13 +9,8 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
-# --- Get API Key from Streamlit secrets ---
-gemini_api_key = st.secrets["GEMINI_API_KEY"]
-
-genai.configure(api_key=gemini_api_key)
-
 # --- App Title and Description ---
-st.title("🎬 AI Script Generator")
+st.title("AI Script Generator (Gemini via HTTP)")
 st.markdown("""
 Welcome to the AI Script Generator! This app uses Google's Gemini model to generate a creative Reel/Ad script for your app or product.
 
@@ -28,8 +22,8 @@ Welcome to the AI Script Generator! This app uses Google's Gemini model to gener
 
 # --- Script Generation Form ---
 with st.form("script_form"):
-    app_description = st.text_area("Describe your app", help="What does your app do? What makes it unique?")
-    target_audience = st.text_input("Who is your target audience?", help="e.g., College students, young adults, etc.")
+    app_description = st.text_area("Describe your app")
+    target_audience = st.text_input("Who is your target audience?")
     goal = st.text_input("What is your goal?", value="Generate a Reel script for my app.")
     submitted = st.form_submit_button("Generate Script")
 
@@ -37,29 +31,29 @@ if submitted:
     if not app_description or not target_audience or not goal:
         st.warning("Please fill in all fields to generate a script.")
     else:
-        # Prepare the prompt in the fine-tuned format
-        user_input = {
-            "app_description": app_description,
-            "target_audience": target_audience,
-            "goal": goal
+        api_key = st.secrets["GEMINI_API_KEY"]
+        endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+        headers = {"Content-Type": "application/json"}
+        prompt = {
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": f"app_description: {app_description}\ntarget_audience: {target_audience}\ngoal: {goal}"
+                        }
+                    ]
+                }
+            ]
         }
-        prompt = str(user_input)
-
-        # Gemini model setup
-        system_instruction = (
-            "You are a creative AI scriptwriting assistant. "
-            "Given the user's app description, target audience, and goal, generate a creative, engaging, and detailed script for a social media Reel or Ad. "
-            "Format your response with clear segment timings, visual and audio cues, and a strong call to action, similar to the provided examples."
-        )
-        model = genai.GenerativeModel(
-            model_name='gemini-1.5-flash',
-            system_instruction=system_instruction
-        )
         try:
             with st.spinner("Generating your script..."):
-                response = model.generate_content(prompt)
-                st.markdown("---")
-                st.subheader("Your Generated Reel/Ad Script")
-                st.markdown(response.text if hasattr(response, 'text') else str(response))
+                response = requests.post(endpoint, headers=headers, json=prompt)
+                response.raise_for_status()
+                result = response.json()
+                # Gemini returns candidates, get the first one
+                script = result["candidates"][0]["content"]["parts"][0]["text"]
+                st.markdown("### Your Generated Reel/Ad Script")
+                st.markdown(script)
         except Exception as e:
             st.error(f"An error occurred: {e}")
