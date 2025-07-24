@@ -1,29 +1,27 @@
 # 🎬 AI Script Generator
 
-A powerful Streamlit web application that generates creative Reel/Ad scripts using a fine-tuned ChatGPT model. Perfect for content creators, marketers, and businesses looking to create engaging video content.
+A Streamlit web application that generates creative and engaging Reel/Ad scripts using a fine-tuned ChatGPT model. Perfect for content creators, marketers, and businesses looking to create compelling video scripts quickly.
+
+![Demo](https://img.shields.io/badge/Demo-Live-brightgreen)
+![GitHub last commit](https://img.shields.io/github/last-commit/AyushRaghuvanshi04/ai-script-generator)
+![GitHub repo size](https://img.shields.io/github/repo-size/AyushRaghuvanshi04/ai-script-generator)
 
 ## ✨ Features
 
-- **🤖 Fine-tuned AI Model**: Uses a custom-trained ChatGPT model specifically optimized for script generation
-- **📝 User-friendly Interface**: Simple form-based input for app description, target audience, and goals
-- **🎨 Dual Display Format**: 
-  - Text area for easy copying and editing
-  - Expandable formatted view for better readability
-- **⚡ Real-time Generation**: Fast script generation with loading indicators
-- **🔧 Error Handling**: Robust error handling with user-friendly messages
+- **AI-Powered Script Generation**: Utilizes a fine-tuned GPT-4.1 Nano model for high-quality script generation
+- **User-Friendly Interface**: Simple and intuitive form-based input
+- **Dual View Display**: View scripts in both text area (for easy copying) and formatted markdown
+- **Responsive Design**: Works on both desktop and mobile devices
+- **Customizable Inputs**: Tailor scripts with specific app details, target audience, and goals
 
-## 🚀 Demo
-
-![AI Script Generator Demo](https://via.placeholder.com/800x400/4CAF50/FFFFFF?text=AI+Script+Generator+Demo)
-
-## 🛠️ Installation
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Python 3.7 or higher
-- OpenAI API key
+- Python 3.8 or higher
+- OpenAI API key (for the fine-tuned model)
 
-### Setup
+### Installation
 
 1. **Clone the repository**
    ```bash
@@ -36,140 +34,68 @@ A powerful Streamlit web application that generates creative Reel/Ad scripts usi
    pip install -r requirements.txt
    ```
 
-3. **Configure API Key**
-   
-   Create or update `.streamlit/secrets.toml` with your OpenAI API key:
-   ```toml
-   OPENAI_API_KEY = "your-openai-api-key-here"
-   ```
+3. **Set up your API key**
+   - Create a `.streamlit/secrets.toml` file
+   - Add your OpenAI API key:
+     ```toml
+     OPENAI_API_KEY = "your-openai-api-key-here"
+     ```
 
-4. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
-
-5. **Open your browser**
-   
-   Navigate to `http://localhost:8501` to use the application.
-
-## 📋 Usage
-
-1. **Describe your app**: Enter a detailed description of your application or product
-2. **Define target audience**: Specify who your content is aimed at
-3. **Set your goal**: Describe what you want to achieve with the script
-4. **Generate**: Click the "Generate Script" button
-5. **Copy & Use**: Copy the generated script from the text area or view it in the formatted section
-
-### Example Input
-
-- **App Description**: "A fitness tracking app that helps users monitor their daily workouts and nutrition"
-- **Target Audience**: "Health-conscious millennials aged 25-35"
-- **Goal**: "Create an engaging Instagram Reel script to promote app downloads"
-
-## 🔧 Configuration
-
-### Fine-tuned Model
-
-The application uses a custom fine-tuned ChatGPT model:
-- **Model ID**: `ft:gpt-4.1-nano-2025-04-14:personal:3-content-script-generator:Bvj2a1H5`
-- **Specialization**: Creative script writing for ads and social media content
-- **Parameters**: 
-  - Temperature: 0.7 (balanced creativity)
-  - Max tokens: 1000
-
-### Customization
-
-You can modify the following parameters in `app.py`:
-
-```python
-response = client.chat.completions.create(
-    model="your-fine-tuned-model-id",
-    messages=[...],
-    temperature=0.7,        # Adjust creativity (0.0-1.0)
-    max_tokens=1000         # Adjust response length
-)
-```
-
-## 📁 Project Structure
-
-```
-ai-script-generator/
-├── app.py                 # Main Streamlit application
-├── requirements.txt       # Python dependencies
-├── .streamlit/
-│   └── secrets.toml      # API key configuration
-├── README.md             # Project documentation
-└── .git/                 # Git repository
-```
-
-## 🔐 Security
-
-- **API Key Protection**: Store your OpenAI API key in `.streamlit/secrets.toml`
-- **Environment Variables**: For production, use environment variables instead of secrets.toml
-- **Rate Limiting**: Consider implementing rate limiting for production use
-
-## 🚀 Deployment
-
-### Streamlit Cloud
-
-1. Push your code to GitHub
-2. Connect your repository to [Streamlit Cloud](https://streamlit.io/cloud)
-3. Add your `OPENAI_API_KEY` in the Streamlit Cloud secrets management
-4. Deploy!
-
-### Local Production
+### Running the Application
 
 ```bash
-# Install production dependencies
-pip install -r requirements.txt
-
-# Run with production settings
-streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+streamlit run app.py
 ```
 
-## 📊 Dependencies
+Then open your browser and navigate to `http://localhost:8501`
 
-- **streamlit>=1.25.0**: Web application framework
-- **openai>=1.0.0**: OpenAI API client
+## 🛠️ How It Works
+
+1. Enter your app/product details in the form
+2. Specify your target audience
+3. Set your goal/purpose for the script
+4. Click "Generate Script"
+5. Copy the generated script or view it in formatted markdown
+
+## 🧠 Fine-Tuned Model
+
+This application uses a custom fine-tuned GPT-4.1 Nano model specifically trained for generating engaging and creative video scripts. The model ID is:
+
+```
+ft:gpt-4.1-nano-2025-04-14:personal:3-content-script-generator:Bvj2a1H5
+```
+
+## 📝 Example Usage
+
+### Input:
+- **App Description**: A language learning app with gamified lessons
+- **Target Audience**: Young professionals aged 20-35
+- **Goal**: Create an engaging Instagram Reel script
+
+### Output:
+```
+[Visual: Creator looking at a foreign menu, looking confused]
+[Text: "Struggling to order food in a new country? I was too! 😅"]
+
+[Visual: Pulling out phone with the app open]
+[Text: "Then I discovered [App Name] - my pocket language tutor!"]
+
+[Visual: Quick cuts of fun lessons and challenges]
+[Text: "5 minutes a day and I was ordering like a local! 🎉"]
+
+[CTA: "Swipe up to start your language journey today! 🌍"]
+```
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- OpenAI for providing the ChatGPT API
-- Streamlit for the amazing web framework
-- The open-source community for inspiration and support
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Issues](https://github.com/AyushRaghuvanshi04/ai-script-generator/issues) page
-2. Create a new issue if your problem isn't already reported
-3. Provide detailed information about your setup and the issue
-
-## 🔄 Changelog
-
-### v2.0.0 (Latest)
-- ✅ Migrated from Gemini API to fine-tuned ChatGPT
-- ✅ Improved script formatting and display
-- ✅ Enhanced UI with dual view format
-- ✅ Better error handling and user feedback
-
-### v1.0.0
-- ✅ Initial release with Gemini API integration
-- ✅ Basic script generation functionality
-
----
-
-**Made with ❤️ by [Ayush Raghuvanshi](https://github.com/AyushRaghuvanshi04)**
+- Built with [Streamlit](https://streamlit.io/)
+- Powered by [OpenAI](https://openai.com/)
+- Fine-tuned model by [Your Name]
