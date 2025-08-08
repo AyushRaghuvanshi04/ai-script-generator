@@ -1,4 +1,4 @@
- # 🎬 AI Script Generator
+ # 🎬 AI Script Generator 
 
 A Streamlit web application that generates creative and engaging Reel/Ad scripts using a fine-tuned ChatGPT model. Perfect for content creators, marketers, and businesses looking to create compelling video scripts quickly.
 
