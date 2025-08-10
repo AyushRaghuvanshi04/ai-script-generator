@@ -8,7 +8,7 @@ A Streamlit web application that generates creative and engaging Reel/Ad scripts
 
 ## ✨ Features
 
-- **AI-Powered Script Generation**: Utilizes a fine-tuned GPT-4.1 Nano model for high-quality script generation
+- **AI-Powered Script Generation**: Utilizes a fine-tuned GPT-4.1 Nano model for high-quality script generation 
 - **User-Friendly Interface**: Simple and intuitive form-based input 
 - **Dual View Display**: View scripts in both text area (for easy copying) and formatted markdown
 - **Responsive Design**: Works on both desktop and mobile devices
