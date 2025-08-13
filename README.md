@@ -20,7 +20,7 @@ A Streamlit web application that generates creative and engaging Reel/Ad scripts
 
 - Python 3.8 or higher
 - OpenAI API key (for the fine-tuned model)
-
+ 
 ### Installation
 
 1. **Clone the repository**
