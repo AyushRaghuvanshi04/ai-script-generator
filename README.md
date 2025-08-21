@@ -13,7 +13,7 @@ A Streamlit web application that generates creative and engaging Reel/Ad scripts
 - **Dual View Display**: View scripts in both text area (for easy copying) and formatted markdown
 - **Responsive Design**: Works on both desktop and mobile devices
 - **Customizable Inputs**: Tailor scripts with specific app details, target audience, and goals
-
+ 
 ## 🚀 Getting Started 
 
 ### Prerequisites
