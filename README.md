@@ -1,7 +1,7 @@
  # 🎬 AI Script Generator 
 
 A Streamlit web application that generates creative and engaging Reel/Ad scripts using a fine-tuned ChatGPT model. Perfect for content creators, marketers, and businesses looking to create compelling video scripts quickly.
-
+ 
 ![Demo](https://img.shields.io/badge/Demo-Live-brightgreen)
 ![GitHub last commit](https://img.shields.io/github/last-commit/AyushRaghuvanshi04/ai-script-generator) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AyushRaghuvanshi04/ai-script-generator)
