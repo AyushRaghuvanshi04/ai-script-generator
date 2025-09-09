@@ -6,7 +6,7 @@ A Streamlit web application that generates creative and engaging Reel/Ad scripts
 ![GitHub last commit](https://img.shields.io/github/last-commit/AyushRaghuvanshi04/ai-script-generator) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AyushRaghuvanshi04/ai-script-generator)
   
-## ✨ Features  
+## ✨ Features   
  
 - **AI-Powered Script Generation**: Utilizes a fine-tuned GPT-4.1 Nano model for high-quality script generation 
 - **User-Friendly Interface**: Simple and intuitive form-based input 
