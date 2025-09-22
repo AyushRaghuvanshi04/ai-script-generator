@@ -14,7 +14,7 @@ A Streamlit web application that generates creative and engaging Reel/Ad scripts
 - **Responsive Design**: Works on both desktop and mobile devices
 - **Customizable Inputs**: Tailor scripts with specific app details, target audience, and goals 
  
-## 🚀 Getting Started 
+## 🚀 Getting Started  
 
 ### Prerequisites
 
